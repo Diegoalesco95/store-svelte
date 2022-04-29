@@ -2,7 +2,7 @@
 	import Product from './Product.svelte';
 	import Loading from '../Loading/Loading.svelte';
 
-	import products, { featuredStore } from '../../stores/defaultProducts';
+	import products, { featuredStore } from '../../stores/products';
 
 	export let title = '';
 </script>
