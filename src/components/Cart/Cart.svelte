@@ -3,11 +3,9 @@
 	import { link } from 'svelte-routing';
 
 	import globalStore from '../../stores/globalStore';
-	import cart from '../../stores/cart';
+	import user from '../../stores/user';
 
 	import Items from './Items.svelte';
-
-	let user = false;
 
 	function closeCart() {
 		globalStore.toggleItem('cart', false);
@@ -25,7 +23,7 @@
 			</div>
 			<Items />
 			<div class="cart-footer">
-				{#if user}
+				{#if $user.jwt}
 					<a
 						class="btn btn-primary btn-block"
 						href="/checkout"

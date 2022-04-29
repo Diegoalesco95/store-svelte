@@ -2,6 +2,7 @@
 	import { link } from 'svelte-routing';
 
 	import CartButton from '../Cart/CartButton.svelte';
+	import LoginLink from '../Login/LoginLink.svelte';
 
 	import links from '../../constants/links';
 </script>
@@ -18,7 +19,7 @@
 			</ul>
 			<a class="nav-logo" href="/" use:link>Razors</a>
 			<div class="nav-aside">
-				<a href="/login" use:link>Login</a>
+				<LoginLink />
 				<CartButton />
 			</div>
 		</div>

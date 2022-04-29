@@ -6,6 +6,8 @@
 
 	import links from '../../constants/links';
 
+	import LoginLink from '../Login/LoginLink.svelte';
+
 	function closeSidebar() {
 		globalStore.toggleItem('sidebar', false);
 	}
@@ -27,6 +29,9 @@
 					>
 				</li>
 			{/each}
+			<li>
+				<LoginLink />
+			</li>
 		</ul>
 	</div>
 </div>
