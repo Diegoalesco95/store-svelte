@@ -1,6 +1,8 @@
 <script>
 	import { Route, Router } from 'svelte-routing';
 
+	import globalStore from './stores/globalStore';
+
 	import About from './pages/About.svelte';
 	import Home from './pages/Home.svelte';
 	import Login from './pages/Login.svelte';
@@ -12,8 +14,10 @@
 </script>
 
 <Router basepath="/">
+	{#if $globalStore.sidebar}
+		<Sidebar />
+	{/if}
 	<Navbar />
-	<Sidebar />
 	<div>
 		<Route path="/" component={Home} />
 		<Route path="/about" component={About} />
