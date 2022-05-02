@@ -4,8 +4,6 @@
 
 	import globalStore from '../../stores/globalStore';
 
-	let { message, type } = $globalStore.alert;
-
 	const handleClose = () => {
 		globalStore.setAlert({
 			show: false,
@@ -33,7 +31,7 @@
 
 <div
 	class="alert-container"
-	class:alert-danger={type === 'danger'}
+	class:alert-danger={$globalStore.alert.type === 'danger'}
 	in:fly={{
 		y: -200,
 		duration: 1000,
@@ -41,7 +39,7 @@
 	out:fade
 >
 	<div class="alert">
-		<p>{message}</p>
+		<p>{$globalStore.alert.message}</p>
 		<button class="alert-close" on:click={handleClose}>
 			<i class="fa-solid fa-xmark" />
 		</button>

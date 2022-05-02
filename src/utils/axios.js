@@ -1,8 +1,10 @@
 import axios from 'axios';
-import URL from '../strapi/URL';
+
+
+const apiUrl = process?.env.API_URL;
 
 const axiosInstance = axios.create({
-  baseURL: URL,
+  baseURL: apiUrl,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -25,9 +27,9 @@ export const get = async (url, params, displayMsg) => {
 };
 
 
-export const post = async (url, data, displayMsg) => {
+export const post = async (url, data, displayMsg, config = null) => {
   try {
-    const response = await axiosInstance.post(url, data)
+    const response = await axiosInstance.post(url, data, config)
     return {
       data: response.data,
       error: null,

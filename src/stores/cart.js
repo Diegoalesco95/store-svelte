@@ -8,7 +8,7 @@ export const cartTotal = derived(cart, $cart => {
     (total, item) => total + item.price * item.amount,
     0
   )
-  return total.toFixed(2);
+  return parseFloat(total.toFixed(2));
 });
 
 const remove = (id, items) => {
@@ -63,6 +63,11 @@ export const decreaseAmount = (id, amount) => {
     }
     return toggleAmount(id, items, "dec");
   });
+}
+
+export const emptyCart = () => {
+  cart.set([]);
+  setStorageCart([]);
 }
 
 

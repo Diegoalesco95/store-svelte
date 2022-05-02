@@ -15,7 +15,7 @@
 		>
 	</div>
 	<div class="product-footer">
-		<p class="prodcut-title">{title}</p>
-		<p class="prodcut-price">${price}</p>
+		<p class="product-title">{title}</p>
+		<p class="product-price">${price}</p>
 	</div>
 </article>

@@ -305,7 +305,6 @@ Products
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   column-gap: 1.8rem;
   row-gap: 1.8rem;
-  /* align-items: start; */
 }
 .title {
   text-align: center;
@@ -319,16 +318,19 @@ Products
   box-shadow: var(--lightShadow);
   transition: var(--mainTransition);
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr auto;
 }
 .product:hover {
   box-shadow: var(--darkShadow);
 }
 .img-container {
-  padding: 3rem;
+  align-items: center;
   background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
   position: relative;
-  /* height: 5rem; */
+  overflow: hidden;
 }
 .product img {
   transition: var(--mainTransition);
@@ -359,6 +361,9 @@ Products
   font-weight: bold;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .product-price {
   color: var(--primaryColor);

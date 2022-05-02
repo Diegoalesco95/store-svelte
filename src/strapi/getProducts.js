@@ -1,10 +1,13 @@
-import URL from './URL'
+import { get } from '../utils/axios'
 
 export default async () => {
   try {
-    const response = await fetch(`${URL}/products`);
-    const products = await response.json();
-    return products;
+    const response = await get('/products', {
+      populate: '*',
+    })
+    if (response.data) {
+      return response.data
+    }
   } catch (error) {
     console.error(error);
     return null

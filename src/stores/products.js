@@ -3,7 +3,8 @@ import getProducts from "../strapi/getProducts";
 
 function flattenProducts(data) {
   return data.map(({ id, attributes }) => {
-    let image = ''
+    console.log(attributes);
+    let image = attributes.image.data.attributes.url || "";
 
     return {
       id,
@@ -20,6 +21,7 @@ export const featuredStore = derived(store, ($featured) => $featured.filter(item
 
 export async function setProducts() {
   const products = await getProducts();
+
   if (products) {
     const { data } = products;
     store.set(flattenProducts(data));
