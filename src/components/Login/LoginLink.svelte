@@ -2,14 +2,14 @@
 	import { link } from 'svelte-routing';
 
 	import globalStore from '../../stores/globalStore';
-	import user from '../../stores/user';
+	import user, { logoutUser } from '../../stores/user';
 
 	function closeSidebar() {
 		globalStore.toggleItem('sidebar', false);
 	}
 
 	function logout() {
-		// user.logout();
+		logoutUser();
 		closeSidebar();
 	}
 </script>

@@ -606,6 +606,7 @@ Expense Form
 
 .form-control label {
   display: block;
+  text-transform: capitalize;
 }
 .form-control input {
   width: 100%;
@@ -619,6 +620,7 @@ Expense Form
 .stripe-errors {
   text-align: center;
   color: var(--mainRed);
+  text-transform: capitalize;
 }
 .register-link {
   margin-bottom: 0;

@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { Route, Router } from 'svelte-routing';
 
 	import globalStore from './stores/globalStore';
@@ -9,12 +10,22 @@
 	import Products from './pages/Products.svelte';
 	import ProductTemplate from './pages/ProductTemplate.svelte';
 
+	import Alert from './components/Alert/Alert.svelte';
+	import Cart from './components/Cart/Cart.svelte';
 	import Navbar from './components/Navbar/Navbar.svelte';
 	import Sidebar from './components/Navbar/Sidebar.svelte';
-	import Cart from './components/Cart/Cart.svelte';
+
+	import { setProducts } from './stores/products';
+
+	onMount(() => {
+		setProducts();
+	});
 </script>
 
 <Router basepath="/">
+	{#if $globalStore.alert.show}
+		<Alert />
+	{/if}
 	{#if $globalStore.sidebar}
 		<Sidebar />
 	{/if}
